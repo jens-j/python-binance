@@ -31,6 +31,9 @@ class BinanceClientProtocol(WebSocketClientProtocol):
             else:
                 self.factory.callback(payload_obj)
 
+    def onPing(self, payload):
+        self.sendPong(payload)
+
 
 class BinanceReconnectingClientFactory(ReconnectingClientFactory):
 
